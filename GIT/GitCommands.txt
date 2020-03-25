@@ -1,0 +1,163 @@
+Git Commands:
+
+git help -- shows all the command documentation
+git help <command> -- shows the specific command documentation
+
+---- first we need to set up the username and email before using the git repo ----
+git config --global user.name "Shubham Roy"
+git config --global user.email "escortnotice@gmail.com"
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Git Flow : System Directory/Workspace/WorkingTree -> Staging Area -> Local Repository -> Remote Repository
+Commands : Add -> sends to staging area, commit -> sends to local repository , push -> sends to remote repository
+
+Git Flow: Remote Repository -> Remote Directory(in local system) -> local Repository -> System Directory/Workspace
+Commands : Fetch -> send from remote repo to Remote Directory , Merge -> merges data from Remote Directory to Local repo, pull-> fetch and merge at the same time
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+git init - to initiate a repository. Will create a local git repository
+
+git clone <repo name> - to get the remote repository in the local system
+
+git clone https://github.com/gpe-mw-training/appmod_springboot_experienced.git ~/appmod_springboot_experienced
+( This will clone the project and cd into the project directory "appmod_springboot_experienced" )
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+git add <filename> - adds the file to the staging area
+git add -all  - adds all new, modified or deleted file to the stage
+git add '*.txt' - adds all the files with .txt in the staging area
+
+
+git commit -m "<commit message>" - added the file from staging area to local repository
+
+git remote add origin <git repo url> - to push our local repository to remote repository. Here the local repo is pushed and not the data in it.
+
+git push -u origin <branchname>-- this pushes our local changes to remote repo, -u command tells git to remember the parameter so that next time we can only use "git push"
+				-- also use when a new branch is created locally and that needs to be created in remote repo
+
+
+git status - to check the status of repository and files. Tells what has changed since the last commit
+
+git log - to show the history of commits in the order they have been committed.
+
+
+git pull origin <branchname>- to pull other people changes from the repository. Also pull if any new branch is created in remote repo
+git checkout <branch name>-- will change the branch and make the branch the working/current branch
+
+git checkout -b <branchname> - this will create a new branch and switch to that branch
+
+git branch -- will show all the branches
+
+git diff HEAD - to check the difference from our last commit
+
+git add <foldername/filename> - to add the file to the staging area
+
+git diff octofamily/octodog.txt - to see the changes in the file that have been staged
+
+git diff --staged  - to see the changes that have been staged
+
+git reset <foldername/filename> -- to unstage files
+
+git checkout -- <filename> - will get rid of all the changes since the last commit
+
+git branch clean_up - will create a branch clean_up
+
+
+git branch - will show the branches in the local system
+
+git checkout <branchname> - This will switch branches.
+
+git fetch -all -- will fetch all the newly created branches from remote repo
+git checkout <new branchname> -- will checkout your new branch which was created in remote repo
+git branch -- this will show all the branches
+
+git rm '*.txt' -- will remove all *.txt files from the local disk and also stage the removal of it
+
+git status - to check all the files that are ready to get committed.
+
+git commit -m "<commit message or comments>" - this will commit the changes to local repo
+
+git checkout master - will change the branch to the branch named master.
+git merge develop - this will merge the develop branch to the current branch.
+git merge --abort -  can only be run after the merge has resulted in conflicts. will abort the merge process and try to reconstruct the pre-merge state
+git push -- to push the merged data to remote repo
+
+git rebase develop -- will rebase the current branch with develop branch
+git push -- to push the rebased branch
+
+git branch -d <branch name> - this will delete the repo from the local repo
+git branch -dr origin/<branch name> - this will delete the repo info from the remotetracking branch
+git push origin --delete <branch name> - this will delete the branch from the remote repository
+
+git status -uno -- to check if the current branch is in synch with the remote origin branch
+
+git push - push everything in the remote repository
+
+git branch -vv - shows all the remote branches
+
+gitk --all - to show a GUI where you can track branches and see changes, commits etc by all developers
+
+git tag <tagname>
+git push origin <tagname>
+git checkout tags/<tagname>
+
+git reset --hard origin/master   --to overwrite local copy with the remote branch
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Head - it has the reference to the currently checked out commit , i.e has the reference to the most recent commit of the current branch
+origin/HEAD - it has the reference to currently checked out commit of the remote branch 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+1) Create a repository in the local system ?
+	go inside the folder which you want to set up as repository.
+	Right click and open the git bash.
+	In the git bash type "git init"
+
+
+2) Download an existing remote repository in the local system ?
+	Go to the location where you want to download the repository
+	type "git clone <url>" , ex:- git clone https://github.com/escortnotice/TestRoy.git
+
+
+3) Create and push a local repository in the remote system?
+	first create the repository in the remote system with the same folder name as in local system
+	in the local system set up the repository in the folder by going to the folder , right click and open the git bash
+	in the git bash type "git init"
+	add all the files to the staging area : git add .
+	git commit -m "<message>"
+	git remote add origin <project url> ex:git remote add origin https://github.com/escortnotice/Testing123.git
+	git push -u origin master
+
+4) Add new files or updated files to Remote Repo
+	Add the files to staging area: git add <filename>
+	Commit the files : git commit -m <message>
+	Add the files to remote repo: git push
+
+5) Take updates from Remote Repo
+	Add files to remote tracking area: git fetch
+	Merge files to working directory and local repo : git merge
+
+Or
+
+	Add and Merge files to working directory at the same time: git pull
+
+
+6) Create a branch locally and push it to the remote repo
+	Create the branch and change the working directory to the working directory : git checkout -b <branchname>
+	Push the branch to remote repo: git push -u origin <branchname>
+
+7) Create a branch in remote repo and pull it to the local
+ 	Create the branch in remote.
+	then run command : git pull  (this will pull the new remote branch too)
+	Now checkout the new branch to make it the working branch: git checkout <branchname>
+	
+
+
+	
+	
+
