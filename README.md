@@ -1,5 +1,5 @@
-1) Git Command References
+Git Command References : 
 ======================================
 
-2) Kafka Command References
+Kafka Command References : 
 ======================================
